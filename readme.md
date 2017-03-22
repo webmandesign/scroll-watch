@@ -10,9 +10,9 @@ You can also use some options:
 
 ```
 $( '#masthead' ).scrollWatch( {
-  offset   : 0,
-  wrapper  : true,
-  fixWidth : true,
+  offset      : 0,
+  placeholder : true,
+  fixWidth    : true,
 } );
 ```
 
@@ -26,9 +26,9 @@ If you set `offset` option (`0` by default, value is in pixels) for the script, 
 
 Additionally to these classes, there are basic scrolling classes applied on HTML body. When the page is not scrolled, there is `scrolled-not` class applied. When the page is scrolled, there is `scrolled` class applied together with the directional class of `scrolled-up` or `scrolled-down`.
 
-If `wrapper` option is enabled (`true` by default) the targeted element (`#masthead` from the example above) is wrapped in `div.scroll-watch-placeholder.masthead-placeholder` and height is set for this wrapper matching the element height.
+If `placeholder` option is enabled (`true` by default) the targeted element (`#masthead` from the example above) is wrapped in `div.scroll-watch-placeholder.masthead-placeholder` placeholder and height is set for this placeholder matching the element height.
 
-If `fixWidth` option is enabled (`true` by default) and `wrapper` is also enabled, the element is set for the width of the wrapper. This helps to keep the width of the fix-positioned element the same as it was when un-fixed.
+If `fixWidth` option is enabled (`true` by default) and `placeholder` is also enabled, the element is set for the width of the placeholder. This helps to keep the width of the fix-positioned element the same as it was when un-fixed.
 
 All of the forced inline styles can be overrode with CSS if needed or simply disabled via script options.
 

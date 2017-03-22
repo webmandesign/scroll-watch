@@ -1,7 +1,7 @@
 /**
  * jQuery.scrollWatch
  *
- * @version  1.0.0
+ * @version  1.1.0
  *
  * @link       https://github.com/webmandesign/scroll-watch
  * @copyright  2017, WebMan Design, https://www.webmandesign.eu
@@ -15,9 +15,9 @@
  *
  * ```
  * $( '#masthead' ).scrollWatch( {
- *   offset   : 0,
- *   wrapper  : true,
- *   fixWidth : true,
+ *   offset      : 0,
+ *   placeholder : true,
+ *   fixWidth    : true,
  * } );
  * ```
  *
@@ -39,12 +39,12 @@
  * When the page is scrolled, there is `scrolled` class applied together with the directional
  * class of `scrolled-up` or `scrolled-down`.
  *
- * If `wrapper` option is enabled (`true` by default) the targeted element (`#masthead` from
- * the example above) is wrapped in `div.scroll-watch-placeholder.masthead-placeholder` and
- * height is set for this wrapper matching the element height.
+ * If `placeholder` option is enabled (`true` by default) the targeted element (`#masthead` from
+ * the example above) is wrapped in `div.scroll-watch-placeholder.masthead-placeholder` placeholder
+ * and height is set for this placeholder matching the element height.
  *
- * If `fixWidth` option is enabled (`true` by default) and `wrapper` is also enabled,
- * the element is set for the width of the wrapper. This helps to keep the width of the
+ * If `fixWidth` option is enabled (`true` by default) and `placeholder` is also enabled,
+ * the element is set for the width of the placeholder. This helps to keep the width of the
  * fix-positioned element the same as it was when un-fixed.
  *
  * All of the forced inline styles can be overrode with CSS if needed or simply disabled
@@ -65,9 +65,9 @@
 			var
 				settings = $.extend( {
 
-					offset   : 0,
-					wrapper  : true,
-					fixWidth : true,
+					offset      : 0,
+					placeholder : true,
+					fixWidth    : true,
 
 				}, options ),
 				prototype = {
@@ -77,6 +77,14 @@
 
 						$this
 							.css( 'width', $this.parent().outerWidth() + 'px' );
+					},
+
+					setHeightPlaceholder : function( $this ) {
+						if ( ! settings.placeholder ) return;
+
+						$this
+							.parent()
+								.css( 'height', $this.outerHeight() + 'px' );
 					},
 
 				},
@@ -152,6 +160,14 @@
 								var
 									scrollTopPosition = $window.scrollTop();
 
+							// Window is on top (no scroll)?
+
+								if ( scrollTopPosition === 0 || scrollTopPosition < settings.offset ) {
+									prototype.setHeightPlaceholder( $this );
+								}
+
+
+
 							// Window was scrolled to the element?
 
 								if ( scrollTopPosition > elementTop ) {
@@ -203,14 +219,14 @@
 
 				// Fixed element modifications
 
-					if ( settings.wrapper ) {
+					if ( settings.placeholder ) {
 
 						// Wrap the element with placeholder and set its height
 
 							$this
-								.wrap( '<div class="scroll-watch-placeholder ' + elementID + '-placeholder"></div>' )
-								.parent()
-									.css( 'height', $this.outerHeight() + 'px' );
+								.wrap( '<div class="scroll-watch-placeholder ' + elementID + '-placeholder"></div>' );
+
+							prototype.setHeightPlaceholder( $this );
 
 						// Set the element width and reset it on window resize
 
@@ -222,7 +238,7 @@
 									// Reset stuck element width
 									prototype.setWidth( $this );
 
-									// Reset stuck element placeholder wrapper height
+									// Reset stuck element placeholder height
 									$this
 										.parent()
 											.css( 'height', $this.outerHeight() + 'px' );
