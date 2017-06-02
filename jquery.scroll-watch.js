@@ -1,7 +1,7 @@
 /**
  * jQuery.scrollWatch
  *
- * @version  1.1.0
+ * @version  1.1.1
  *
  * @link       https://github.com/webmandesign/scroll-watch
  * @copyright  2017, WebMan Design, https://www.webmandesign.eu
@@ -122,7 +122,7 @@
 							$body
 								.removeClass( 'scrolled-down' )
 								.addClass( 'scrolled-up' );
-						} else {
+						} else if ( scrollTopPosition > lastScrollTop ) {
 							$body
 								.removeClass( 'scrolled-up' )
 								.addClass( 'scrolled-down' );
