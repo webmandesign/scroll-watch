@@ -1,7 +1,7 @@
 /**
  * jQuery.scrollWatch
  *
- * @version  1.1.1
+ * @version  1.2.0
  *
  * @link       https://github.com/webmandesign/scroll-watch
  * @copyright  2017, WebMan Design, https://www.webmandesign.eu
@@ -41,6 +41,7 @@
  *
  * If `placeholder` option is enabled (`true` by default) the targeted element (`#masthead` from
  * the example above) is wrapped in `div.scroll-watch-placeholder.masthead-placeholder` placeholder
+ * (only if there is no wrapper with `.scroll-watch-placeholder` class assigned already)
  * and height is set for this placeholder matching the element height.
  *
  * If `fixWidth` option is enabled (`true` by default) and `placeholder` is also enabled,
@@ -223,8 +224,10 @@
 
 						// Wrap the element with placeholder and set its height
 
-							$this
-								.wrap( '<div class="scroll-watch-placeholder ' + elementID + '-placeholder"></div>' );
+							if ( ! $this.parent().hasClass( 'scroll-watch-placeholder' ) ) {
+								$this
+									.wrap( '<div class="scroll-watch-placeholder ' + elementID + '-placeholder"></div>' );
+							}
 
 							prototype.setHeightPlaceholder( $this );
 
