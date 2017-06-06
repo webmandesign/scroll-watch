@@ -4,8 +4,8 @@ Watching for element when browser window scrolls. Useful for sticky headers.
 
 ## How to initiate?
 
-jQuery is required for this script to work.  
-Initiate the script for the web page element with `$( '#masthead' ).scrollWatch();`.  
+jQuery is required for this script to work.
+Initiate the script for the web page element with `$( '#masthead' ).scrollWatch();`.
 You can also use some options:
 
 ```
@@ -26,11 +26,11 @@ If you set `offset` option (`0` by default, value is in pixels) for the script, 
 
 Additionally to these classes, there are basic scrolling classes applied on HTML body. When the page is not scrolled, there is `scrolled-not` class applied. When the page is scrolled, there is `scrolled` class applied together with the directional class of `scrolled-up` or `scrolled-down`.
 
-If `placeholder` option is enabled (`true` by default) the targeted element (`#masthead` from the example above) is wrapped in `div.scroll-watch-placeholder.masthead-placeholder` placeholder and height is set for this placeholder matching the element height.
+If `placeholder` option is enabled (`true` by default) the targeted element (`#masthead` from the example above) is wrapped in `div.scroll-watch-placeholder.masthead-placeholder` placeholder (only if there is no wrapper with `.scroll-watch-placeholder` class assigned already) and height is set for this placeholder matching the element height.
 
 If `fixWidth` option is enabled (`true` by default) and `placeholder` is also enabled, the element is set for the width of the placeholder. This helps to keep the width of the fix-positioned element the same as it was when un-fixed.
 
-All of the forced inline styles can be overrode with CSS if needed or simply disabled via script options.
+All of the forced inline styles can be overridden with CSS if needed or simply disabled via script options.
 
 There is no responsive setup here as all of that can be targeted with CSS. This unfortunately means that script will continue working on all screen sizes. All of the above functionality is recalculated upon browser window resize or orientation change.
 

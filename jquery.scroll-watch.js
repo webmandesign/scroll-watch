@@ -1,7 +1,7 @@
 /**
  * jQuery.scrollWatch
  *
- * @version  1.2.0
+ * @version  1.2.1
  *
  * @link       https://github.com/webmandesign/scroll-watch
  * @copyright  2017, WebMan Design, https://www.webmandesign.eu
@@ -48,7 +48,7 @@
  * the element is set for the width of the placeholder. This helps to keep the width of the
  * fix-positioned element the same as it was when un-fixed.
  *
- * All of the forced inline styles can be overrode with CSS if needed or simply disabled
+ * All of the forced inline styles can be overridden with CSS if needed or simply disabled
  * via script options.
  *
  * There is no responsive setup here as all of that can be targeted with CSS. This unfortunately
