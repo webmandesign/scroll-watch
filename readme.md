@@ -2,6 +2,7 @@
 
 Watching for element when browser window scrolls. Useful for sticky headers.
 
+
 ## How to initiate?
 
 jQuery is required for this script to work.
@@ -15,6 +16,7 @@ $( '#masthead' ).scrollWatch( {
   fixWidth    : true,
 } );
 ```
+
 
 ## How does it work?
 
@@ -34,6 +36,7 @@ All of the forced inline styles can be overridden with CSS if needed or simply d
 
 There is no responsive setup here as all of that can be targeted with CSS. This unfortunately means that script will continue working on all screen sizes. All of the above functionality is recalculated upon browser window resize or orientation change.
 
+
 ## HTML body classes reference
 
 Again, here are all the HTML body classes the script applies when the window:
@@ -52,10 +55,12 @@ The `ELEMENT_ID` above is retrieved from (ordered by priority, 1 being highest):
 2. Element `id` attribute: `masthead` from `<header class="site-header sticky-header" id="masthead">`
 3. First element class: `site-header` from `<header class="site-header sticky-header">`
 
+
 ## License
 
 Licensed under MIT license.
 
+
 ---
 
-&copy; 2017 [WebMan Design](https://www.webmandesign.eu)
+&copy; [WebMan Design](https://www.webmandesign.eu)

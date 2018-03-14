@@ -1,5 +1,12 @@
 # jQuery.scrollWatch Changelog
 
+## 1.2.2
+
+* **Update**: Removing obsolete instructions comments
+* **Update**: Variables declaration and reset
+* **Update**: Improving code organization
+
+
 ## 1.2.0
 
 * **Update**: Wrapping with placeholder DIV only if it doesn't exist already (checks for `.scroll-watch-placeholder` class wrapper)
